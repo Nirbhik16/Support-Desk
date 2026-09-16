@@ -1,5 +1,6 @@
 package com.supportdesk.entity;
 
+import com.supportdesk.enums.Category;
 import com.supportdesk.enums.Priority;
 import com.supportdesk.enums.Source;
 import com.supportdesk.enums.TicketStatus;
@@ -35,6 +36,9 @@ public class Ticket extends BaseEntity{
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private Priority priority = Priority.MEDIUM;
+
+    @Enumerated(EnumType.STRING)
+    private Category category;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
