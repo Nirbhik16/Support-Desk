@@ -23,8 +23,8 @@ import java.util.List;
 @RequiredArgsConstructor
 public class TicketService {
 
-    private TicketRepository ticketRepository;
-    private TicketHistoryRepository ticketHistoryRepository;
+    private final TicketRepository ticketRepository;
+    private final TicketHistoryRepository ticketHistoryRepository;
 
     public TicketResponse createTicket(CreateTicketRequest request, User currentUser) {
         Ticket ticket = Ticket.builder()

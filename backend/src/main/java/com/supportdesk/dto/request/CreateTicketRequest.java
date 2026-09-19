@@ -12,7 +12,6 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
 public class CreateTicketRequest {
     @NotBlank(message = "Title is required")
     private String title;

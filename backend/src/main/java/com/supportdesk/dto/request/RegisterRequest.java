@@ -13,7 +13,6 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
 public class RegisterRequest {
     @NotBlank(message = "Name is required")
     private String name;

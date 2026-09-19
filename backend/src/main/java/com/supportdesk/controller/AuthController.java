@@ -4,6 +4,7 @@ import com.supportdesk.dto.request.LoginRequest;
 import com.supportdesk.dto.request.RegisterRequest;
 import com.supportdesk.dto.response.AuthResponse;
 import com.supportdesk.service.AuthService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/auth")
 @RequiredArgsConstructor
+@Tag(name = "Auth", description = "Register and login")
 public class AuthController {
 
     private final AuthService authService;

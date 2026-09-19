@@ -6,8 +6,10 @@ import com.supportdesk.dto.response.TicketResponse;
 import com.supportdesk.entity.User;
 import com.supportdesk.service.TicketService;
 import com.supportdesk.util.SecurityUtil;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,12 +19,15 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/tickets")
 @RequiredArgsConstructor
+@Tag(name = "Tickets", description = "Ticket management APIs")
+@Slf4j
 public class TicketController {
 
     private final TicketService ticketService;
 
     @PostMapping
     public ResponseEntity<TicketResponse> createTicket(@Valid @RequestBody CreateTicketRequest request) {
+        log.info("SOURCE IN CONTROLLER = {}", request.getSource());
         User currentUser = SecurityUtil.getCurrentUser();
         TicketResponse response = ticketService.createTicket(request, currentUser);
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
